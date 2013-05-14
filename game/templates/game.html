@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Game{% endblock %}
+	
+{% block body %}
+	<div class="game_wrapper">
+		<h2>{{ game.game_type }}</h2>
+		<p>Starts: {{ game.startTime }}</p>
+		<p>Betting Ends: {{ game.endBetTime }}</p>
+		<p>Game Ends: {{ game.endTime }}</p>
+	</div>
+	
+	<div class="bet_wrapper">
+		{% if current_bet %}
+			Current Bet: {{ current_bet }}
+		{% endif %}
+		<form action="/place_bet/" method="post">
+			{% csrf_token %}
+			Bet Amount: <input type="text" name="amount" />
+			<input type="submit" value="Place Bet" />
+		</form>
+	</div>
+{% endblock %}

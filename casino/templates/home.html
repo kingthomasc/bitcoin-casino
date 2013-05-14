@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block body %}
+	<div class="game_list">
+		<h2>Active Games</h2>
+		{% for game in games %}
+			{% include 'game_thumbnail.html' %}
+		{% endfor %}
+	</div>
+{% endblock %}

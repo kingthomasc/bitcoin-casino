@@ -23,7 +23,7 @@ DATABASES = {
     }
 }
 
-BITCOIND_CONNECTION_STRING = "http://bitcoinrpc:DfuijE2Mrv9eRBcPJmqCxNiy9m3Bc6upMXNSWYtZ7Vjz@localhost:8332"
+BITCOIND_CONNECTION_STRING = "http://root:1o2i3u4y5t6r7zmxncbv@localhost:8332"
 
 AUTH_PROFILE_MODULE = 'user_profile.UserProfile'
 

@@ -18,4 +18,5 @@ def register(request):
 
 def save_form(form):
     user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
-    UserProfile.objects.create(user=user, address=form.cleaned_data['address'], phone_number=form.cleaned_data['phone_number'])
+    user_prof = UserProfile(user=user, address=form.cleaned_data['address'], phone_number=form.cleaned_data['phone_number'])
+    user_prof.save()

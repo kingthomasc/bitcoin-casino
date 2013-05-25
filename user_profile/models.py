@@ -12,7 +12,7 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length="100")
     secret_code = models.CharField(max_length="50", blank=True, null=True)
     bitcoin_address = models.OneToOneField(BitcoinAddress, blank=True, null=True)
-    wallet = models.OneToOneField(Wallet, blank=True, null=True, null=True)
+    wallet = models.OneToOneField(Wallet, blank=True, null=True)
     
     def save(self, *args, **kwargs):
         if not self.bitcoin_address:

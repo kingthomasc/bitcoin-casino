@@ -6,7 +6,7 @@
 	<div class="register_form">
 		<form action="/accounts/register/" method="post">
 			<table class="form_table">
-				{ % csrf_token %}
+				{% csrf_token %}
 				{{ form.as_table }}
 				<tr>
 					<td> </td>

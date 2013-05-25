@@ -20,7 +20,7 @@ class UserProfile(models.Model):
             wallet = Wallet.objects.create(label=self.user.username)
             wallet.addresses.add(address)
             wallet.save()
-            self.address = address
+            self.bitcoin_address = address
             self.wallet = wallet;
         if not self.secret_code:
             self.secret_code = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(20))

@@ -14,9 +14,10 @@
 		{% if current_bet %}
 			Current Bet: {{ current_bet }}
 		{% endif %}
-		<form action="/place_bet/" method="post">
+		<form action="/place_bet/{{ game.pk }}/" method="post">
 			{% csrf_token %}
 			Bet Amount: <input type="text" name="amount" />
+			Higher?: <input type="checkbox" name="higher" />
 			<input type="submit" value="Place Bet" />
 		</form>
 	</div>

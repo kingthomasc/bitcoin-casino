@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+	<div class="balance">
+		My Balance: {{ user_profile.balance }}
+		<p>To increase your balance, send bitcoins to the address listed below.</p>
+	</div>
+	<div class="address">
+		Bitcoin Address: {{ user_profile.bitcoin_address.address }}
+		<br />
+		<img src='/qr/{{ user_profile.bitcoin_address.address }}/' />
+	</div>
+{% endblock %}

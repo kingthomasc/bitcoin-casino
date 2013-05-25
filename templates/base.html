@@ -2,11 +2,30 @@
 
 <html>
 	<head>
-		<title>{% block title %}CryptoGamble{% endblock %}</title>
+		<title>{% block title %}CryptOption{% endblock %}</title>
 		<link rel="stylesheet" href="/static/css/style.css" />
 		<script type="teext/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
 		</head>
 	<body>
+		<header>
+			<div class="title">
+				<a href="/"><img src="/static/img/logo.png" /></a>
+			</div>
+			<div class="account">
+				{% if request.user.is_authenticated %}
+				<span class="welcome">Welcome <a href="/profile/">{{ request.user.first_name }}</a>!</span>
+					<span class="seperator"> | </span>
+					<span class="logout"><a href="/accounts/logout/">Logout</a></span>
+				{% else %}
+					<span class="login"><a href="/accounts/login/">Login</a></span>
+					<span class="seperator"> | </span>
+					<span class="register"><a href="/accounts/register/">Register</a></span>
+				{% endif %}
+			</div>
+		</header>
 		{% block body %} {% endblock %}
+		<footer>
+			
+		</footer>
 	</body>
 </html>

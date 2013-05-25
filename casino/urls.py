@@ -15,10 +15,13 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/profile/$', 'user_profile.views.profile', name='home'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^$', 'casino.views.home', name='home'),
     url(r'^game/(?P<pk>\d+)/$', 'game.views.game', name='game'),
-    url(r'^place_bet/$', 'game.views.bet', name='place_bet'),
+    url(r'^place_bet/(?P<pk>\d+)/$', 'game.views.bet', name='place_bet'),
+    url(r'^qr/(?P<key>\w+)/$', 'django_bitcoin.views.qrcode_view', name='qr_code_image'),
+    url(r'^accounts/register/$', 'user_profile.views.register', name='register'),
 )
 
 if settings.DEBUG:

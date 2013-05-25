@@ -10,12 +10,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
     address = models.CharField(max_length="500")
     phone_number = models.CharField(max_length="100")
-    secret_code = models.CharField(max_length="50", blank=True)
-    bitcoin_address = models.OneToOneField(BitcoinAddress, blank=True)
-    wallet = models.OneToOneField(Wallet, blank=True, null=True)
+    secret_code = models.CharField(max_length="50", blank=True, null=True)
+    bitcoin_address = models.OneToOneField(BitcoinAddress, blank=True, null=True)
+    wallet = models.OneToOneField(Wallet, blank=True, null=True, null=True)
     
     def save(self, *args, **kwargs):
-        if not self.address:
+        if not self.bitcoin_address:
             address = new_bitcoin_address()
             wallet = Wallet.objects.create(label=self.user.username)
             wallet.addresses.add(address)
